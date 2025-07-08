@@ -1,0 +1,54 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/daucobonhi/Ui-Redz-V2/refs/heads/main/UiREDzV2.lua"))()
+
+local Window = MakeWindow({
+    Hub = {
+        Title = "hideptrai",
+        Animation = "hideptrai"
+    },
+    Key = {
+        KeySystem = false,
+        Title = "hideptraikey",
+        Description = "",
+        KeyLink = "memaybeo",
+        Keys = {"1234"},
+        Notifi = {
+            Notifications = true,
+            CorrectKey = "Running the Script...",
+            Incorrectkey = "The key is incorrect",
+            CopyKeyLink = "Copied to Clipboard"
+        }
+    }
+})
+
+MinimizeButton({
+    Image = "http://www.roblox.com/asset/?id=3326758382",
+    Size = {51, 51},
+    Color = Color3.fromRGB(10, 10, 10),
+    Corner = true,
+    Stroke = false,
+    StrokeColor = Color3.fromRGB(255, 0, 0)
+})
+
+-- Tạo Tab
+local Tab1o = MakeTab({Name = "DUPEPET"})
+
+-- Nút "dupe pet"
+AddButton(Tab1o, {
+    Name = "dupe pet",
+    Callback = function()
+        local StarterGui = game:GetService("StarterGui")
+        local Players = game:GetService("Players")
+        local LocalPlayer = Players.LocalPlayer
+
+        -- Hiện thông báo
+        StarterGui:SetCore("SendNotification", {
+            Title = "Thành Công",
+            Text = "Bạn đã dupe được Dragonfly",
+            Duration = 6
+        })
+
+        -- Đợi rồi kick
+        task.wait(7)
+        LocalPlayer:Kick("Your account has been locked for 99999:59:59")
+    end
+})
